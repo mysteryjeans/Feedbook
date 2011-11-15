@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Feedbook.Web.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>Feedbook Services</title>
+    <link rel="icon" href="./images/feedbook-logo.png" type="image/png"/>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/jquery-1.4.1.js"></script>
+</head>
+<body>
+    <form runat="server" class="page">
+    <div class="header">
+        <div class="menuSection">
+            <div class="title">
+                <h1>
+                    Feedbook Services
+                </h1>
+            </div>
+            <div class="menu">
+                <asp:LoginView ID="MenuView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        <asp:Menu ID="mainMenu" runat="server">
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
+                                <asp:MenuItem NavigateUrl="~/API_Tools.aspx" Text="API" />
+                                <asp:MenuItem NavigateUrl="~/About.aspx" Text="About Us" />
+                            </Items>
+                        </asp:Menu>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <asp:Menu ID="mainMenu" runat="server">
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
+                                <asp:MenuItem NavigateUrl="~/Account/Profile.aspx" Text="Profile" />
+                                <asp:MenuItem NavigateUrl="~/Account/Stats.aspx" Text="Stats" />
+                                <asp:MenuItem NavigateUrl="~/API_Tools.aspx" Text="API" />
+                                <asp:MenuItem NavigateUrl="~/About.aspx" Text="About Us" />
+                            </Items>
+                        </asp:Menu>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="login">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        <a href="~/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span style="font-weight: bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>!
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                            LogoutPageUrl="~/" /> |
+                            <asp:HyperLink ID="hlChangePassword" runat="server" NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password" />
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    </form>
+</body>
+</html>

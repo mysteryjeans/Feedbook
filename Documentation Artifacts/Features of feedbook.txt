@@ -1,0 +1,28 @@
+1)* Enclosure Selective download
+2) At first launch offer to search for feeds from browser history.
+3)* Notification should show with relative icons, i.e for twitter feed a twitter icon and for rss feed an rss icon.
+4)* Enclosure which was downloading should continue at startup 
+5)* Status Update notification should be remove from Buzz and Twitter both 
+6)* Color should be more dark for special text like time, name and hyperlinks (hyperlink color should be implemented through style)
+7) Use richtextbox for twitter and buzz so that text can be copied, there should be some way to navigate to original post of twitter/buzz
+8) Make RSS link scranner better by looking for words in link (<a/>) like podcast, rss, feed, atom ....
+9)* Give context menu on podcasts option are (open containing folder, redownload, include in download, exclude in download)
+10)* Unreaded RSS Feed should be highlighted
+11)* Search capability in feeds
+12)* Zoom in Feed Reader
+13) One view for twitter/buzz/rss 
+14) Location bar in twitter status update field
+15) nearby channel using geocode parameter in twitter search query
+16) Twitter Friend's feed should show small friend action at right on each feed
+17)* Rss fix title lenght in rss display
+18)* Podcast download disconnect button
+19)* feed synchronization disconnect button
+20) Preset RSS channel for new installation
+21) New notification for changes in latest version
+22) link hover preview of website with setting to turn off
+23) Max number of feeds settings
+24)* RSS Feed title should be hyperlink
+25)* Change logo to rounded corner logo.
+26)* Podcast show message for no podcast 
+27) Clicking feed on notification should open feedbook main window with particular feed view rss/twitter/buzz
+28) Tweet/buzz RSS feed capability

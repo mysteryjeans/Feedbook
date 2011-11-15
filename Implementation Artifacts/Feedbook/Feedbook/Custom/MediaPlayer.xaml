@@ -1,0 +1,60 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:auto="clr-namespace:Feedbook.Automation"
+    x:Class="Feedbook.Custom.MediaPlayer"
+    x:ClassModifier="internal"
+    mc:Ignorable="d" d:DesignWidth="344" d:DesignHeight="207.333">
+    <UserControl.Resources>    	
+		<auto:StringToUriConverter x:Key="StringToUriConverter"/>
+		<LinearGradientBrush x:Key="ButtonBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFD7D6D6" Offset="0.062"/>
+			<GradientStop Color="#FFFCFCFC" Offset="1"/>
+		</LinearGradientBrush>   
+	</UserControl.Resources>	
+    <Border CornerRadius="2" BorderThickness="2">
+        <Grid x:Name="mediaPlayerGrid" Height="Auto" Width="Auto" >
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="*"/>
+        		<RowDefinition Height="auto"/>
+        	</Grid.RowDefinitions>
+            <Border Margin="4" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        		<MediaElement x:Name="mediaElement" LoadedBehavior="Manual" Source="{Binding LocalPath, Converter={StaticResource StringToUriConverter}}" Volume="1" MediaOpened="mediaElement_MediaOpened" MediaEnded="mediaElement_MediaEnded"/>
+        	</Border>
+            <Border HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" BorderThickness="1" BorderBrush="#4C000000" CornerRadius="7" >
+            	<Border BorderBrush="#4CFFFFFF" BorderThickness="1" CornerRadius="6" >
+            		<StackPanel x:Name="ControlPanel" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            			<Button x:Name="btnPlay" Tag="PlayButton" DataContext="{Binding ElementName=media}" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Content="4" FontFamily="Webdings" VerticalAlignment="Center" FontSize="26.667" RenderTransformOrigin="0.5,0.5" Click="btnPlay_Click" Template="{DynamicResource TransparentButtonTemplate}" Margin="5,6,0,5" Foreground="{DynamicResource ButtonBrush}">
+            				<Button.Effect>
+            					<DropShadowEffect Direction="-66" ShadowDepth="0" BlurRadius="7" Color="#40000000"/>
+            				</Button.Effect>
+            			</Button>
+            			<Button x:Name="btnStop" Tag="StopButton" DataContext="{Binding ElementName=media}" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Content="&lt;" FontFamily="Webdings" VerticalAlignment="Center" FontSize="26.667" RenderTransformOrigin="0.5,0.5" Click="btnStop_Click" Template="{DynamicResource TransparentButtonTemplate}" Margin="0,7,5,5" Foreground="{DynamicResource ButtonBrush}">
+            				<Button.Effect>
+            					<DropShadowEffect Direction="-66" ShadowDepth="0" BlurRadius="7" Color="#40000000"/>
+            				</Button.Effect>
+            			</Button>
+            			<Slider x:Name="timelineSlider" Tag="TimelineSlider" Height="22" Maximum="{Binding NaturalDuration.TimeSpan.TotalMilliseconds, ElementName=media}" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" HorizontalAlignment="Center" Width="158" VerticalAlignment="Center" Margin="5">
+            				<Slider.Effect>
+            					<DropShadowEffect Direction="-66" ShadowDepth="0" BlurRadius="7" Color="#40000000"/>
+            				</Slider.Effect>
+            			</Slider>
+            			<StackPanel x:Name="TimelinePanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,4,0" Visibility="Collapsed">
+            				<TextBlock x:Name="MovieTimelineText" TextWrapping="Wrap" Foreground="{DynamicResource ContrastBrush}" Margin="0,0,5,0" VerticalAlignment="Center"/>
+            				<Border BorderBrush="Black" BorderThickness="1,0,0,0" Width="2" HorizontalAlignment="Center" Background="White" CornerRadius="1" Opacity="0.3" Margin="0,11"/>
+            				<TextBlock x:Name="MovieDurationText" TextWrapping="Wrap" Foreground="{DynamicResource ContrastBrush}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            			</StackPanel>
+            			<Button x:Name="btnOpenMedia"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Height="20" ToolTip="Open media externally ..." Click="btnOpenMedia_Click" Template="{DynamicResource TransparentButtonTemplate}" Margin="5">
+            				<Button.Effect>
+            					<DropShadowEffect Direction="-66" ShadowDepth="0" BlurRadius="7" Color="#40000000"/>
+            				</Button.Effect>
+            				<Rectangle Stroke="{DynamicResource ButtonBrush}" RadiusX="4" RadiusY="3" Fill="#00000000"/>
+            			</Button>
+            		</StackPanel>
+            	</Border>
+            </Border>
+    	</Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,127 @@
+﻿<custom:FbWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:Feedbook.Views"    
+        xmlns:custom="clr-namespace:Feedbook.Custom"        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Feedbook.MainWindow"
+        x:ClassModifier="internal" Height="509" Width="1096" Background="{x:Null}" RenderOptions.BitmapScalingMode="HighQuality" Icon="Images/FBIcon.png" Title="Feedbook" WindowStyle="ThreeDBorderWindow">
+    <custom:FbWindow.Resources>
+        <Storyboard x:Key="ErrorStoryboard">
+            <DoubleAnimation To="1" Duration="00:00:01"  AutoReverse="True" RepeatBehavior="00:00:07" Storyboard.TargetName="ErrorButton" Storyboard.TargetProperty="Opacity"/>
+        </Storyboard>
+
+        <ContextMenu x:Key="NotifierContextMenu"
+                    Placement="MousePoint">
+            <MenuItem Header="Exit" Click="Menu_Exit"/>
+        </ContextMenu>
+
+        <Style x:Key="ButtonStyleHover"  TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="2"	/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="ButtonControlTemplate" TargetType="{x:Type Button}">
+            <ContentPresenter x:Name="presenter" Cursor="Hand">
+                <ContentPresenter.Effect>
+                    <DropShadowEffect BlurRadius="7" ShadowDepth="2"/>
+                </ContentPresenter.Effect>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="MouseOver">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.ShadowDepth)" Storyboard.TargetName="presenter">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="3"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ContentPresenter>
+        </ControlTemplate>
+    </custom:FbWindow.Resources>
+    <Grid x:Name="ContentGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="1,0,0,0" Padding="0" BorderBrush="Black" Background="#FFFFFBFB" Opacity="0.295" HorizontalAlignment="Right" Width="2" VerticalAlignment="Center" Margin="0,0,6,0" Height="{Binding ActualHeight, ElementName=ControlStackPanel}"/>
+        <StackPanel x:Name="ControlStackPanel" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Right" Width="32" RenderTransformOrigin="0.5,0.5" Margin="0,0,25,0">
+            <Button Padding="1" Template="{DynamicResource ButtonControlTemplate}" Margin="-5,0" ToolTip="RSS Reader" Click="RSSReader_Click">
+                <Image Source="Images/GlossyBlack/RSS.png"/>
+            </Button>
+            <Button Background="{x:Null}" Padding="1" Margin="0,11,0,0" Template="{DynamicResource ButtonControlTemplate}" ToolTip="Google Buzz" Click="GoogleBuzz_Click">
+                <Image Source="Images/GlossyBlack/Buzz.png"/>
+            </Button>
+            <Button Background="{x:Null}" Padding="1" Margin="-7,12,-7,0" Template="{DynamicResource ButtonControlTemplate}" ToolTip="Twitter" Click="Twitter_Click">
+                <Image Source="Images/GlossyBlack/Twitter.png"/>
+            </Button>
+            <Border BorderBrush="Black" BorderThickness="0,1,0,0" Height="2" Background="White" Opacity="0.395" Margin="-3,9,-7,3" CornerRadius="1"/>
+            <Button HorizontalAlignment="Center" Template="{DynamicResource ButtonControlTemplate}" Click="Settings_Click" ToolTip="Modify Feedbook settings ..." Margin="0,12,0,0">
+                <Image x:Name="image" Source="Images/Tools-Icon.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+            <custom:LinkButton HorizontalAlignment="Center" Template="{DynamicResource ButtonControlTemplate}" Click="Settings_Click" ToolTip="Send comments or request new features ..." Margin="0,10,0,0" NavigateUri="mailto:myfeedbook@gmail.com?subject=Comments and features">
+                <Image Source="Images/applications.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </custom:LinkButton>
+            <Button HorizontalAlignment="Center" Template="{DynamicResource ButtonControlTemplate}" ToolTip="About Feedbook ..." Margin="-2,12,2,3" Click="About_Click">
+                <Image Source="Images/info.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+            <Button x:Name="ErrorButton" HorizontalAlignment="Center" Template="{DynamicResource ButtonControlTemplate}" Margin="0,9,0,3" Opacity="0" Visibility="Collapsed" Click="ErrorButton_Click" ToolTip="Send error report ...">
+                <Image Source="Images/dialog_warning.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+        </StackPanel>
+        <!--<Frame x:Name="ContentFrame" Grid.Column="1" Source="/Feedbook;component/Views/RSSReader.xaml" NavigationUIVisibility="Hidden" />-->
+        <Grid Grid.Column="1" d:IsHidden="True">
+            <views:RSSReader x:Name="RSSReader"/>
+            <views:Twitter x:Name="Twitter" Visibility="Hidden"/>
+            <views:GoogleBuzz x:Name="GoogleBuzz" Visibility="Hidden"/>
+        </Grid>
+        <!--<ContentPresenter x:Name="MainContentPresenter" Grid.Column="1">
+            <ContentPresenter.Content>
+                <views:RSSReader/>
+            </ContentPresenter.Content>
+        </ContentPresenter>-->
+        <Border x:Name="NotificationBorder" BorderBrush="#C0FFFFFF" BorderThickness="5" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" CornerRadius="3" Margin="5,0,0,0" Visibility="Collapsed">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Color="#FF34579D" Offset="0.25"/>
+                    <GradientStop Color="#FF5785E0" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <ContentPresenter x:Name="NotificationPresenter" TextElement.Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,5,5,5"/>
+                <Button Content="Ñ" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Template="{DynamicResource TransparentFBButtonTemplate}" FontFamily="Wingdings 2" Margin="3" Cursor="Hand" Click="NotificationClose_Click"/>
+            </Grid>
+        </Border>
+        <Button x:Name="ConnectButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Template="{DynamicResource TransparentButtonTemplate}" Margin="0,0,0,7" Cursor="Hand" Style="{StaticResource ButtonStyleHover}" Click="ConnectButton_Click">
+            <Grid>
+                <Image Source="Images/Connection.png" Width="22" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <!--<Image.Effect>
+                        <DropShadowEffect ShadowDepth="1"/>
+                    </Image.Effect>-->
+                </Image>
+                <TextBlock x:Name="DisconnectButtonText" Text="Ñ" FontFamily="Wingdings 2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#FFBC2A2A" FontSize="16" Margin="0,0,0,-2"/>
+            </Grid>
+        </Button>
+        <Button x:Name="DownloadPodcastButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Template="{DynamicResource TransparentButtonTemplate}" Height="34" Margin="18,0,0,0" Cursor="Hand" Style="{StaticResource ButtonStyleHover}" Click="DownloadPodcastButton_Click">
+            <Grid>
+                <Image Source="Images/podcast.png" Stretch="Fill" Width="32" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <!--<Image.Effect>
+                        <DropShadowEffect ShadowDepth="1"/>
+                    </Image.Effect>-->
+                </Image>
+                <TextBlock x:Name="DisconnectPodcastButtonText" Text="Ñ" FontFamily="Wingdings 2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFBC2A2A" FontSize="16" Margin="0,0,2,5"/>
+            </Grid>
+        </Button>
+    </Grid>
+</custom:FbWindow>

@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA4D3404-4493-4CFC-AE71-AC07837F2B84}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Feedbook</RootNamespace>
+    <AssemblyName>Feedbook</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20901.0</ExpressionBlendVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\masoodf.TRGWORLD\Dropbox\Public\Feedbook\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://dl.dropbox.com/u/20000906/Feedbook/</InstallUrl>
+    <SupportUrl>http://feedbook.org</SupportUrl>
+    <ErrorReportUrl>http://feedbook.org</ErrorReportUrl>
+    <ProductName>Feedbook</ProductName>
+    <PublisherName>Feedbook</PublisherName>
+    <MinimumRequiredVersion>2.1.1.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>setup.html</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.3.1.1</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>21A8D86C91A48CFFAA16C2BE23BC87406A09F0AD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Feedbook_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="FbApplication.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Automation\AbsoluteUriConverter.cs" />
+    <Compile Include="Automation\AttachmentToPreviewConverter.cs" />
+    <Compile Include="Automation\BoolToVisibilityConverter.cs" />
+    <Compile Include="Automation\BytesToReadableSizeConverter.cs" />
+    <Compile Include="Automation\CacheUrlConverter.cs" />
+    <Compile Include="Automation\ContentToPainTextConverter.cs" />
+    <Compile Include="Automation\ContentTypeToImageUriConverter.cs" />
+    <Compile Include="Automation\DateTimeToOutlookStyleGroupConverter.cs" />
+    <Compile Include="Automation\EnclosureToBitmapImageConverter.cs" />
+    <Compile Include="Automation\FlashEnclosuresConverter.cs" />
+    <Compile Include="Automation\ImageEnclosuresConverter.cs" />
+    <Compile Include="Automation\LikeConverter.cs" />
+    <Compile Include="Automation\LikeToWingdingCharConverter.cs" />
+    <Compile Include="Automation\TextToInteractiveConverter.cs" />
+    <Compile Include="Automation\FriendlyDateTimeConverter.cs" />
+    <Compile Include="Automation\GetFriendListConverter.cs" />
+    <Compile Include="Automation\NullOrEmptyToVisibilityConverter.cs" />
+    <Compile Include="Automation\StringToUriConverter.cs" />
+    <Compile Include="Automation\TextToTwitterKeywordConverter.cs" />
+    <Compile Include="Automation\UriToImageBrushConverter.cs" />
+    <Compile Include="Custom\LinkButton.cs" />
+    <Compile Include="FBMessageBox.xaml.cs">
+      <DependentUpon>FBMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ThumbnailHelper.cs" />
+    <Compile Include="Sync\FeedSynchronizer.cs" />
+    <Compile Include="Helper\Constants.cs" />
+    <Compile Include="Helper\Downloader.cs" />
+    <Compile Include="Helper\ExceptionExtension.cs" />
+    <Compile Include="Helper\GeneralExtension.cs" />
+    <Compile Include="Helper\GlobalEventManager.cs" />
+    <Compile Include="Helper\IconHelper.cs" />
+    <Compile Include="Helper\Util.cs" />
+    <Compile Include="Helper\HttpMethod.cs" />
+    <Compile Include="Helper\ImageCache.cs" />
+    <Compile Include="Logging\LogException.cs" />
+    <Compile Include="Logging\LogAppender.cs" />
+    <Compile Include="Helper\PageExtension.cs" />
+    <Compile Include="Helper\SignatureMethod.cs" />
+    <Compile Include="Helper\UIElementExtension.cs" />
+    <Compile Include="Helper\UserControlExtension.cs" />
+    <Compile Include="Helper\VisualTreeExtensions.cs" />
+    <Compile Include="Logging\LogEvent.cs" />
+    <Compile Include="Logging\LogReport.cs" />
+    <Compile Include="Mail\MAPI.cs" />
+    <Compile Include="Notification.xaml.cs">
+      <DependentUpon>Notification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sync\ISynchronizer.cs" />
+    <Compile Include="Sync\PodcastSynchronizer.cs" />
+    <Compile Include="Services\Attachment.cs" />
+    <Compile Include="Services\Bitly\BitlyData.cs" />
+    <Compile Include="Services\Bitly\BitlyResponse.cs" />
+    <Compile Include="Services\Bitly\BitlyService.cs" />
+    <Compile Include="Services\ContactType.cs" />
+    <Compile Include="Services\FeedSource.cs" />
+    <Compile Include="Services\Google\Buzz\ActivityType.cs" />
+    <Compile Include="Services\Google\Buzz\GBuzzProcessor.cs" />
+    <Compile Include="Services\Google\Buzz\GBuzzService.cs" />
+    <Compile Include="Services\Google\Buzz\GBuzzSocialService.cs" />
+    <Compile Include="Services\Google\Buzz\GBuzzUser.cs" />
+    <Compile Include="Services\Google\GData\GQuery.cs" />
+    <Compile Include="Services\Google\GData\GService.cs" />
+    <Compile Include="Services\Google\GData\GSidewikiQuery.cs" />
+    <Compile Include="Services\Google\GoogleService.cs" />
+    <Compile Include="Services\Google\Picasa\AlbumType.cs" />
+    <Compile Include="Services\Google\Picasa\GPicasaService.cs" />
+    <Compile Include="Services\Google\Picasa\PicasaImageFormat.cs" />
+    <Compile Include="Services\ISocialService.cs" />
+    <Compile Include="Services\ISocialUser.cs" />
+    <Compile Include="Services\Security\OAuthHelper.cs" />
+    <Compile Include="Services\Security\OAuthSignatureBase.cs" />
+    <Compile Include="Services\Security\PostData.cs" />
+    <Compile Include="Services\Security\QueryParameter.cs" />
+    <Compile Include="Services\SocialService.cs" />
+    <Compile Include="Services\SocialType.cs" />
+    <Compile Include="Services\Twitter\Timelines.cs" />
+    <Compile Include="Services\Twitter\TwitterProcessor.cs" />
+    <Compile Include="Services\Twitter\TwitterService.cs" />
+    <Compile Include="Services\Twitter\TwitterSocialService.cs" />
+    <Compile Include="Services\Twitter\TwitterSocialUser.cs" />
+    <Compile Include="Services\WebFeed\FeedProcessor.cs" />
+    <Compile Include="Services\WebFeed\FeedSocialService.cs" />
+    <Compile Include="Specifications\PortableContacts\Contact.cs" />
+    <Compile Include="Specifications\PortableContacts\Photo.cs" />
+    <Compile Include="Specifications\PortableContacts\Response.cs" />
+    <Compile Include="Specifications\PortableContacts\Url.cs" />
+    <Compile Include="Specifications\Twitter\TwitterRateLimit.cs" />
+    <Compile Include="Specifications\Twitter\TwitterStatus.cs" />
+    <Compile Include="Specifications\Twitter\TwitterUser.cs" />
+    <Compile Include="Specifications\Twitter\TwitterUserCollection.cs" />
+    <Compile Include="Store\DataStore.cs" />
+    <Compile Include="Store\IsolatedStorageSettings.cs" />
+    <Compile Include="Views\FeedbookSettings.xaml.cs">
+      <DependentUpon>FeedbookSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GBuzzControl.xaml.cs">
+      <DependentUpon>GBuzzControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GoogleBuzz.xaml.cs">
+      <DependentUpon>GoogleBuzz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GBuzzAccount.xaml.cs">
+      <DependentUpon>GBuzzAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MediaEnclosureView.xaml.cs">
+      <DependentUpon>MediaEnclosureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RSSDiscovery.xaml.cs">
+      <DependentUpon>RSSDiscovery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedView.xaml.cs">
+      <DependentUpon>FeedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RSSChannelSettings.xaml.cs">
+      <DependentUpon>RSSChannelSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RSSReader.xaml.cs">
+      <DependentUpon>RSSReader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TweetControl.xaml.cs">
+      <DependentUpon>TweetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Twitter.xaml.cs">
+      <DependentUpon>Twitter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TwitterAccount.xaml.cs">
+      <DependentUpon>TwitterAccount.xaml</DependentUpon>
+    </Compile>
+    <Page Include="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Custom\MediaPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FBMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="FbApplication.xaml.cs">
+      <DependentUpon>FbApplication.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Custom\FbWindow.cs" />
+    <Compile Include="Custom\MediaPlayer.xaml.cs">
+      <DependentUpon>MediaPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FeedbookSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GBuzzControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GoogleBuzz.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GBuzzAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MediaEnclosureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RSSDiscovery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FeedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RSSChannelSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RSSReader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TweetControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Twitter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TwitterAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\AccountType.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\CategoryFeed.cs" />
+    <Compile Include="Model\Channel.cs" />
+    <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\Content.cs" />
+    <Compile Include="Model\Enclosure.cs" />
+    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\Feed.cs" />
+    <Compile Include="Model\FeedType.cs" />
+    <Compile Include="Model\Icon.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\LinkRel.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\PersonRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Feedbook_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Audio\Download.wav" />
+    <Resource Include="Audio\Error.wav" />
+    <Resource Include="Images\Add-32.png" />
+    <Resource Include="Images\Check-32.png" />
+    <Resource Include="Images\application.png" />
+    <Resource Include="Images\attachment.png" />
+    <Resource Include="Images\audio.png" />
+    <Resource Include="Images\Connection.png" />
+    <Resource Include="Images\email_send.png" />
+    <Resource Include="Images\enclosure.png" />
+    <Resource Include="Images\feed_cloud.png" />
+    <Resource Include="Images\go_next_black.png" />
+    <Resource Include="Images\go_previous_black.png" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\podcast.png" />
+    <Resource Include="Images\rss_2.png" />
+    <Resource Include="Images\Tools-Icon.png" />
+    <Resource Include="Images\video.png" />
+    <Resource Include="Images\dialog_warning.png" />
+    <Resource Include="Images\applications.png" />
+    <Resource Include="Images\buzz.png" />
+    <Resource Include="Images\Twitter.png" />
+    <None Include="Lib\log4net.dll" />
+    <Resource Include="Images\download.png" />
+    <Resource Include="Images\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CoreSystem\Implementation\CoreSystem\CoreSystem\CoreSystem.csproj">
+      <Project>{FBBFE4AC-73C2-47CB-8925-858501D1AE8F}</Project>
+      <Name>CoreSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Third Party\HtmlToFlowDocConverter\HtmlToFlowDocConverter.csproj">
+      <Project>{242A77D7-BE86-4FC0-B6C8-E03D6399CCDE}</Project>
+      <Name>HtmlToFlowDocConverter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Black\books.png" />
+    <Resource Include="Images\Black\Buzz.png" />
+    <Resource Include="Images\Black\RSS.png" />
+    <Resource Include="Images\Black\Twitter.png" />
+    <Resource Include="Images\GlossyBlack\Book-Search.png" />
+    <Resource Include="Images\GlossyBlack\Buzz.png" />
+    <Resource Include="Images\GlossyBlack\RSS.png" />
+    <Resource Include="Images\GlossyBlack\Twitter.png" />
+    <Resource Include="Images\FBIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,87 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+			 x:Name="MediaEnclosureControl"
+             xmlns:custom="clr-namespace:Feedbook.Custom" 
+             x:Class="Feedbook.Views.MediaEnclosureView" 
+             x:ClassModifier="internal"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <CollectionViewSource x:Key="EnclosureSource">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Updated"/>
+            </CollectionViewSource.SortDescriptions>
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Feed.Channel.Title"/>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+
+        <DataTemplate x:Key="EnclosureTemplate">
+            <Grid Margin="0,2" MouseRightButtonUp="Enclosure_MouseRightButtonUp"  Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Cursor="Hand" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,2,0,0" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="WrapWithOverflow" Foreground="{DynamicResource ContrastBrush}" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Grid.Column="0" VerticalAlignment="Top" Height="15.96" Margin="0" Text="{Binding Feed.Title}"/>
+                    <custom:LinkButton x:Name="EnclosureButton" NavigateUri="{Binding Url}" ToolTip="{Binding Length, Converter={StaticResource BytesToReadableSizeConverter}}" Focusable="False" Width="Auto" Height="Auto" Template="{DynamicResource TransparentButtonTemplate}" HorizontalAlignment="Right" d:LayoutOverrides="Height" Opacity="0.495" Grid.Column="1" Margin="5,0,0,0">
+                        <Image Source="{Binding Type, Converter={StaticResource ContentTypeToImageUriConverter}}" Height="Auto" Width="20"/>
+                    </custom:LinkButton>
+                    <Image Margin="0" x:Name="image" Height="Auto" Source="..\Images\download.png" Width="14" Visibility="{Binding IsDownloading, Converter={StaticResource BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,1" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1">
+                        <Image.RenderTransform>
+                            <TranslateTransform/>
+                        </Image.RenderTransform>
+                        <Image.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding DownloadPercentage}"/>
+                                <TextBlock Text="%"/>
+                            </StackPanel>
+                        </Image.ToolTip>
+                    </Image>
+                </Grid>
+                <Border BorderBrush="White" BorderThickness="0,0,0,1" Height="2" Background="Black" Opacity="0.295" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2" d:LayoutOverrides="GridBox" Margin="0,2,0,0"/>
+            </Grid>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsDownloading}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetName="image" >
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y" To="-5" Duration="0:0:0.35" AutoReverse="True" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsDownloaded}" Value="true">
+                    <Setter Property="Opacity" Value="0.75" TargetName="EnclosureButton"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+		<TextBlock x:Name="NoPodcastMessage" Grid.RowSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="{DynamicResource ContrastBrush}" Text="No podcasts are available ... "/>
+		<Grid x:Name="LayoutGrid" d:LayoutOverrides="Width">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<custom:MediaPlayer x:Name="MediaPlayer" Visibility="Visible" Margin="0,0,0,4"/>
+			<GridSplitter HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="5" Background="{DynamicResource PanelBrush}"/>
+			<Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}" >
+				<ListBox x:Name="EnclosureListBox" PreviewMouseDown="EnclosureListBox_PreviewMouseButtonDown" Background="{x:Null}" BorderBrush="{x:Null}" ItemsSource="{Binding Source={StaticResource EnclosureSource}}" ItemTemplate="{StaticResource EnclosureTemplate}" SelectedItem="{Binding DataContext, ElementName=MediaEnclosureControl, Mode=TwoWay}" ItemContainerStyle="{DynamicResource MyListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="Enclosure_SelectionChanged" >
+					<ListBox.GroupStyle>
+						<StaticResource ResourceKey="OutlookGroupStyle"/>
+					</ListBox.GroupStyle>
+				</ListBox>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

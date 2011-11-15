@@ -1,0 +1,24 @@
+﻿<control:FbWindow x:ClassModifier="internal"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="clr-namespace:Feedbook.Custom"
+	x:Class="Feedbook.About"    
+	x:Name="Window"
+	Title="About"
+	Width="631" Height="365" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" mc:Ignorable="d" AllowsTransparency="True" WindowStyle="None" Icon="Images/FBIcon.png">
+	<Border Margin="0" Style="{DynamicResource WindowContainerDialogStyle}">
+		<Grid>
+			<TextBlock TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="6,7,0,0" Foreground="{DynamicResource FeedTitleBrush}" Text="{Binding Title, ElementName=Window}"/>
+			<Button x:Name="CloseButton" Content="Ñ" HorizontalAlignment="Right" Width="Auto" FontFamily="Wingdings 2" Template="{DynamicResource TransparentFBButtonTemplate}" Foreground="{DynamicResource ContrastBrush}" FontSize="16" Click="CloseButton_Click" Cursor="Hand" VerticalAlignment="Top" Margin="0,7,6,0"/>
+			<Border BorderBrush="Black" BorderThickness="0,1,0,0" Height="2" VerticalAlignment="Top" Margin="6,34,6,0" CornerRadius="1" Background="White" Opacity="0.295"/>
+			<TextBlock VerticalAlignment="Top" Text="Feedbook" TextWrapping="Wrap" FontSize="18.667" FontWeight="Bold" Margin="15,48,0,0" Foreground="{DynamicResource ContrastBrush}" d:LayoutOverrides="VerticalAlignment"/>
+			<Border Margin="8,92.83,8,10" BorderThickness="1" Padding="4" CornerRadius="4" d:LayoutOverrides="Width, HorizontalMargin">
+				<TextBlock TextWrapping="Wrap" Hyperlink.RequestNavigate="RequestNavigate" Foreground="{DynamicResource ContrastBrush}"><Run Text="(C) Faraz Masood Khan 2011. All Rights Reserved"/><LineBreak/><LineBreak/><Run Text="Feedbook RSS Reader support any RSS and Atom news feeds, It can also download podcasts saliently and play it within Feedbook.  Feedbook integrates with Twitter and Google Buzz very well, you can send tweets/post easily and can also subscribe  to twitter timelines/buzz feeds. Feedbook also recognize # &amp; @ as special keywords, so that you can subscribe to feeds of any on going topic on twitter like #download, #movie or #cricket."/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Feedbook Copyright (C) 2011 by Faraz Masood Khan"/><LineBreak/><Run Text="Version: "/><InlineUIContainer>
+						<TextBlock Text="{Binding Version, ElementName=Window}"/>
+					</InlineUIContainer><Run Text=" Beta"/><LineBreak/><Hyperlink Foreground="#FF86A9FF" NavigateUri="http://feedbook.org" TextDecorations="Underline"><Run Text="http://feedbook.org"/></Hyperlink><Run Text=", "/><Hyperlink Foreground="#FF86A9FF" NavigateUri="mailto:info@feedbook.org"><Run Text="info@feedbook.org"/></Hyperlink><Run Text=", "/><Run Text=" "/><Hyperlink Foreground="#FF86A9FF" NavigateUri="http://www.linkedin.com/in/farazmasoodkhan"><Run Text="http://www.linkedin.com/in/farazmasoodkhan"/></Hyperlink></TextBlock>
+			</Border>
+		</Grid>
+	</Border>
+</control:FbWindow>

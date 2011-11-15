@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:helper="clr-namespace:Feedbook.Helper"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+        x:Class="Feedbook.Views.GBuzzAccount"
+        x:ClassModifier="internal"
+        Title="Add Google Buzz Account" Height="493" Width="742" Background="{x:Null}" WindowStartupLocation="CenterOwner" Loaded="Page_Loaded" WindowStyle="None" Icon="/Feedbook;component/Images/FBIcon.png">
+    <Border Style="{DynamicResource WindowContainerDialogStyle}" Padding="4" BorderThickness="6" CornerRadius="0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="CloseButton" Content="Ñ" HorizontalAlignment="Right" Width="Auto" FontFamily="Wingdings 2" Template="{DynamicResource TransparentFBButtonTemplate}" Foreground="{DynamicResource ContrastBrush}" FontSize="16" Click="CloseButton_Click" Cursor="Hand" Margin="0,5,5,2.133" d:LayoutOverrides="Height"/>
+            <WebBrowser x:Name="webBrowser" Navigating="webBrowser_Navigating" Grid.Row="1" />
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Loading . . ." d:LayoutOverrides="Height" Foreground="{DynamicResource ContrastBrush}" Grid.Row="1" VerticalAlignment="Center"/>
+        </Grid>
+    </Border>
+</Window>

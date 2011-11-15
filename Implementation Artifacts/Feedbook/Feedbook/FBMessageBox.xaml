@@ -1,0 +1,28 @@
+﻿<control:FbWindow x:Class="Feedbook.FBMessageBox" x:ClassModifier="internal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:Feedbook.Custom"
+	x:Name="MessageBox"
+    Title="Message - Feedbook"
+    SizeToContent="WidthAndHeight"
+    HorizontalAlignment="Left" VerticalAlignment="Top" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterOwner" Padding="5" ResizeMode="NoResize" Background="{x:Null}" WindowStyle="None" Height="152" Width="328" MinWidth="328" MinHeight="152" Icon="Images/FBIcon.png">
+    <Border Style="{DynamicResource WindowContainerDialogStyle}" Padding="8,8,8,16">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Title, ElementName=MessageBox}" d:LayoutOverrides="Height" Foreground="{DynamicResource FeedTitleBrush}" FontSize="14.667" Margin="0,0,0,3"/>
+			<Border BorderBrush="Black" BorderThickness="0,1,0,0" VerticalAlignment="Bottom" Background="#82FFFFFF" Height="2"/>
+			<Button x:Name="CloseButton" Content="Ñ" HorizontalAlignment="Right" Width="Auto" FontFamily="Wingdings 2" Template="{DynamicResource TransparentFBButtonTemplate}" Foreground="{DynamicResource ContrastBrush}" FontSize="16" Click="CloseButton_Click" Cursor="Hand" d:LayoutOverrides="Height" Margin="0,-3,-4,0"/>
+			<TextBlock Width="Auto" Height="Auto" Text="Message" TextWrapping="NoWrap" FontSize="14" FontWeight="Normal" x:Name="lbMessage" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{DynamicResource ContrastBrush}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Grid.Row="1" Margin="0,4,0,0"/>
+			<StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,4,0,2" HorizontalAlignment="Center">
+				<Button HorizontalAlignment="Center" x:Name="btnOk" VerticalAlignment="Center" Width="75" Content="Ok" Click="Button_Click" TabIndex="0" IsDefault="True" Template="{DynamicResource FBButtonTemplate}" Visibility="Collapsed"/>
+				<Button HorizontalAlignment="Center" x:Name="btnYes" VerticalAlignment="Center" Width="75" Content="Yes" Click="Button_Click" TabIndex="1" Template="{DynamicResource FBButtonTemplate}" IsDefault="True" Visibility="Collapsed"/>
+				<Button HorizontalAlignment="Center" x:Name="btnNo" VerticalAlignment="Center" Width="75" Content="No" Click="Button_Click" TabIndex="2" Template="{DynamicResource FBButtonTemplate}" Visibility="Collapsed"/>
+				<Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Content="Cancel" x:Name="btnCancel" Click="Button_Click" TabIndex="3" Template="{DynamicResource FBButtonTemplate}" Visibility="Collapsed"/>
+			</StackPanel>
+		</Grid>
+	</Border>
+</control:FbWindow>

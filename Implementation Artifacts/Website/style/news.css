@@ -1,0 +1,19 @@
+
+.feedburnerFeedBlock ul {
+	list-style-type: none;
+}
+
+
+.feedburnerFeedBlock li {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #d2d0d0;
+	padding-top: 0px;	 
+	padding-bottom: 20px;
+}
+
+
+.feedburnerFeedBlock .date {
+	font-size: 8pt;
+	font-weight: bold;
+}
+
