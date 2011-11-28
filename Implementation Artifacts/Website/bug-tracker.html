@@ -10,6 +10,7 @@
         <link type="text/css" href="./style/news.css" rel="stylesheet" />
 		<script type="text/javascript" src="./lib/jquery/jquery-1.4.2.min.js">
         </script>
+        <script type="text/javascript" src="./lib/base.js"></script>
         <script type="text/javascript">
             
             var _gaq = _gaq || [];
@@ -43,54 +44,10 @@
         <noscript>
             <a href="http://www.histats.com" target="_blank"><img src="http://sstatic1.histats.com/0.gif?1416887&101" alt="site stats" border="0"/></a>
         </noscript><!-- Histats.com  END  -->
-        <script type="text/javascript">
-            $(document).ready(function(){
-            
-                $(".menu-links li").hover(function(){
-                    $(this).fadeOut(0);
-                    $(this).addClass('menu-link-selected2');
-                    $(this).fadeIn(400);
-                }, function(){
-                    $(this).removeClass('menu-link-selected2');
-                })
-            });
-        </script>
     </head>
     <body>
         <div id="root">
-            <div id="menu">
-                <div id="menu-in">
-                    <table width="900px">
-                        <tr>
-                            <td valign="middle" width="64px">
-                                <div class="menu-logo"/>
-                            </td>
-                            <td valign="middle" align="left">
-                                <h1>Feedbook</h1>
-                            </td>
-                            <td>
-                                <ol class="menu-links">
-                                    <li>
-                                        <a href="./index.html">Product</a>
-                                    </li>
-                                    <li>
-                                        <a href="./download.html">Download</a>
-                                    </li>
-                                    <li>
-                                        <a href="./news.html">News</a>
-                                    </li>
-                                    <li class="menu-link-selected">
-                                        <a href="./bug-tracker.html">Bug Tracker</a>
-                                    </li>
-                                    <li>
-                                        <a href="./about.html">About Us</a>
-                                    </li>
-                                </ol>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+			<div src="./webpart/menu.html"></div>
             <div id="content">
                 <h2>Bug Tracker</h2>
                 <div style="margin-top: 10px; font-size:11pt;">

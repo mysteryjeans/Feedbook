@@ -3,20 +3,21 @@
     float: right;
     position: relative;
 	margin-right: 15px;
-	padding: 8px;	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4x;
-    border-radius: 4px;    
+    border-radius: 4px; 
 }
 
-/*--Window/Masking Styles--*/
 .window {
-	height: 365px;  
-    width: 786px; 
-    overflow: hidden; /*--Hides anything outside of the set width/height--*/
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    box-shadow: 0 0 6px #333333;
+    height: 365px;
+    overflow: hidden;
     position: relative;
+    width: 786px;
 }
-
 .image_reel {
     position: absolute;
     top: 0;
