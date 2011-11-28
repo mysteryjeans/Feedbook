@@ -1,0 +1,261 @@
+<html>
+	<head>
+		<title>Feedbook : Online RSS Reader</title>
+		<meta property="fb:admins" content="537113478"/>
+		<meta property="fb:app_id" content="244289802263818"/>
+		<link rel="icon" href="./images/feedbook-logo.png" type="image/png"/>
+		<link type="text/css" href="./style/rss.css" rel="stylesheet" />
+		<link type="text/css" href="./style/feedbook.css" rel="stylesheet" />
+		<link type="text/css" href="./style/jquery/custom/jquery-ui.css" rel="stylesheet" />
+
+		<script type="text/javascript" src="./lib/util.js"></script>
+		<script type="text/javascript" src="./lib/jquery/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="./lib/jquery/jquery.util.js"></script>
+		<script type="text/javascript" src="./lib/jquery/jquery.cookie.js"></script>
+		<script type="text/javascript" src="./lib/jquery/jquery.jsoncookie.js"></script>
+		<script type="text/javascript" src="./lib/jquery/jquery.jgfeed.js"></script>
+		<script type="text/javascript" src="./lib/jquery/jquery-ui-1.8.14.custom.min.js"></script>
+		<script type="text/javascript" src="./lib/base.js"></script>
+		<script type="text/javascript">
+			$(document).ready( function() {
+
+				var queryParameters = getQueryParameters();
+				if(queryParameters["src"] == undefined || queryParameters["src"] == '' || queryParameters["article"] == undefined || queryParameters['article'] == '')
+					window.location = 'http://feedbook.org';
+
+				var fbCommentsUrl =  'http://feedbook.org/article.html?src=' + encodeURIComponent(queryParameters["src"]) + '&article=' + encodeURIComponent(queryParameters['article']);
+				$('#fb-comments').attr('href', fbCommentsUrl);
+				loadArticle(queryParameters["src"], queryParameters['article']);
+			});
+			/*
+			 function loadArticleBitly(src, article) {
+			 $.bitlyExpand(new Array(src, article), function(expandUrls) {
+			 var rssSource  = expandUrls[src];
+			 var articleLink = expandUrls[article];
+			 $.jGFeed(rssSource, function(feeds) {
+
+			 var rssHtml = '';
+
+			 for(var i=0; i<feeds.entries.length; i++) {
+			 var entry = feeds.entries[i];
+			 if(entry.link == articleLink ) {
+			 document.title = entry.title + ' | Feedbook';
+			 rssHtml += '<a href="' + entry.link +'" class="rss-title">' + entry.title +'</a></br/>'
+			 +'<span class="rss-publishedDate">' + friendlyDate(new Date(entry.publishedDate)) + '</span>'
+			 +'<span class="rss-author">' + (entry.author != null && entry.author != '' ? ' by ' + entry.author : '') + '</span>'
+			 +'<div class="rss-content">'
+			 + entry.content
+			 +'</div>';
+			 break;
+			 }
+			 }
+
+			 $('.news-div').each( function () {
+			 $(this).html(rssHtml);
+			 });
+			 $('.news-div a').each( function () {
+			 this.target = '_blank';
+			 });
+			 });
+			 });
+			 } */
+
+			function loadArticle(src, article) {
+
+				$.jGFeed(src, function(feeds) {
+
+					var articleFound = false;
+					var rssHtml = '';
+					article = article.toLowerCase();
+					for(var i=0; i<feeds.entries.length; i++) {
+						var entry = feeds.entries[i];
+						if(article.indexOf(entry.link.toLowerCase()) == 0) {
+							if(article != entry.link.toLowerCase()) {
+								window.location = 'http://feedbook.org/article.html?src=' + encodeURIComponent(src) + '&article=' + encodeURIComponent(entry.link);
+							} else {
+								rssHtml += '<a href="' + entry.link +'" class="rss-title">' + entry.title +'</a></br/>'
+								+'<span class="rss-publishedDate">' + friendlyDate(new Date(entry.publishedDate)) + '</span>'
+								+'<span class="rss-author">' + (entry.author != null && entry.author != '' ? ' by ' + entry.author : '') + '</span>'
+								+'<div class="rss-content">'
+								+ entry.content
+								+'</div>';
+							}
+							articleFound = true;
+							break;
+						}
+					}
+
+					if(articleFound) {
+						$('.news-div').each( function () {
+							$(this).html(rssHtml);
+						});
+						$('.rss-content iframe').each( function() {
+							$(this).remove();
+						});
+						$('.news-div a').each( function () {
+							this.target = '_blank';
+						});
+					} else
+						window.location = article;
+				}, 30);
+			}
+		</script>
+	</head>
+	<body>
+
+		<div id="root">
+			<div id="menu">
+				<div id="menu-in">
+					<table width="900px">
+						<tr>
+							<td valign="middle" width="64px">
+							<div class="menu-logo"/>
+							</td>
+							<td valign="middle" align="left" style="width: 235px;">
+							<h1>
+							Feedbook
+							<span style="font-size: small; margin-left: -3px;">Online RSS Reader</span>
+							</h1>
+							</td>
+							<td>
+							<ol class="menu-links">
+								<li class="menu-link-selected">
+									<a href="." title="Online RSS Reader">Reader</a>
+								</li>
+								<li>
+									<a href="./app.html" title="Social client for your desktop">App</a>
+								</li>
+								<li>
+									<a href="./news.html" title="Top news regarding Feedbook">News</a>
+								</li>
+								<li>
+									<a href="./screenshots.html" title="Screenshots of desktop application">Screenshots</a>
+								</li>
+								<li>
+									<a href="./about.html" title="What is Feedbook?">About Us</a>
+								</li>
+							</ol>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="page-area">
+				<div id="index-content">
+					<div style="width: 960px; margin: auto;">
+						<table>
+							<tr>
+								<td valign="top">
+								<div class="index-main-content">
+									<!-- AddThis Button BEGIN -->
+									<div class="addthis_toolbox addthis_default_style " style="float: right;">
+										<a class="addthis_counter addthis_pill_style"></a>
+									</div>
+									<!-- AddThis Button END -->
+									<div class="news-div rss-news">
+										<span>Loading </span>
+										<span class="loading">...</span>
+									</div>
+									<div id="fb-root">
+									</div>
+									<fb:comments id="fb-comments" num_posts="10" width="700px">
+									</fb:comments>
+									<br style="clear: both;"/>
+								</div>
+								</td>
+								<td width="250px" valign="top">
+								<div class="follow-us-div" style="margin-bottom: 29px">
+									<ul>
+										<li>
+											<div style="font-weight: bold; float: left; margin-top: 7px">
+												FOLLOW US
+											</div>
+											<div style="margin-top: -10px">
+												<a href="http://feeds.feedburner.com/blogspot/UDgrP" style="float: right">
+												<img src="images/rss.png" width="30px" style="border-width: 0px;"/>
+												</a>
+											</div>
+										</li>
+										<hr style="margin-right: 5px; margin-bottom: 10px; clear: both">
+										</hr>
+										<li>
+											<a href="http://profiles.google.com/myFeedbook">Buzz</a>
+										</li>
+										<li>
+											<a href="http://www.twitter.com/feedbook">Twitter</a>
+										</li>
+										<li>
+											<div style="margin-top: 13px;">
+												<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FFeedbook%2F128452073863708&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px; float: left" allowtransparency="true">
+												</iframe>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div style="clear:both; margin-left: 11px">
+									<a href="thankyou.html">
+									<div style="background: url('images/btn-download-fbv2.png'); width:228px; height:68px">
+									</div>
+									</a>
+									<div style="margin-top:20px; display: none">
+										<form action="https://www.moneybookers.com/app/payment.pl" method="post" target="_blank">
+											<input type="hidden" name="pay_to_email" value="myfeedbook@gmail.com">
+											<input type="hidden" name="recipient_description" value="Feedbook.org">
+											<input type="hidden" name="status_url" value="info@feedbook.org">
+											<input type="hidden" name="language" value="EN">
+											<input type="hidden" name="currency" value="USD">
+											<input type="hidden" name="amount" value="10">
+											<input type="hidden" name="detail1_description" value="Feedbook Application">
+											<input type="hidden" name="detail1_text" value="Donation">
+											<input type="submit" value="Donate!" class="donate-button2">
+										</form>
+									</div>
+								</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-21218243-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<!-- Histats.com  START  (standard)-->
+		<script type="text/javascript">document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
+		<a href="http://www.histats.com" target="_blank" title="site stats">
+		<script type="text/javascript">
+			try {
+				Histats.start(1, 1416887, 4, 0, 0, 0, "00000000");
+				Histats.track_hits();
+			} catch (err) {
+			};
+		</script>
+		</a>
+		<noscript>
+			<a href="http://www.histats.com" target="_blank">
+			<img src="http://sstatic1.histats.com/0.gif?1416887&101" alt="site stats" border="0"/>
+			</a>
+		</noscript><!-- Histats.com  END  -->
+		<!-- AddThis Button BEGIN -->
+		<script type="text/javascript">
+			var addthis_config = {
+				"data_track_clickback":true
+			};
+		</script>
+		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e113cf769a35770"></script>
+		<!-- AddThis Button END -->
+		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+	</body>
+</html>

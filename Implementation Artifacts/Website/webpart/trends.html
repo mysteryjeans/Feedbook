@@ -1,0 +1,86 @@
+<script type="text/javascript">
+	$(document).ready( function() {
+		loadTrends();
+	})
+	var sources = 0;
+	var trendControlCount = 0;
+	function loadTrends() {
+
+		$.jGFeed('http://www.google.com/trends/hottrends/atom/hourly', function (mytrends) {
+			if(mytrends.entries.length > 0) {
+				$('#googleTrends').html(mytrends.entries[0].content);
+				var index = 0;
+				$('#googleTrends a').each( function () {
+					if(index < 5)
+						addTrend(this.innerHTML, this.href);
+					index++;
+				});
+			}
+			$('#googleTrends').html('');
+			sources += 1;
+			setupMouseOverMenu();
+		}, 5);
+		$.jGFeed('http://buzzlog.yahoo.com/feeds/buzzoverl.xml', function (mytrends) {
+			for(var i=0; i < mytrends.entries.length && i < 5; i++) {
+				var title = mytrends.entries[i].title;
+				title = title.indexOf('. ') != -1 ? title.substring(title.indexOf('. ') + 2) : title;
+				addTrend(title.toLowerCase(),  mytrends.entries[i].link);
+			}
+			sources += 1;
+			setupMouseOverMenu();
+		}, 5);
+		$.getJSON('http://api.twitter.com/1/trends.json?count=5&callback=?', function (feed) {
+			for(var i=0; feed != null && i < feed.trends.length && i < 5; i++)
+				addTrend(feed.trends[i].name, feed.trends[i].url);
+			sources += 1;
+			setupMouseOverMenu();
+		}, 5);
+	}
+
+	function addTrend(name, url) {
+		var trend = '<li><a href="' + url + '" target="_blank">' + name + '</a></li>';
+		$('#trends-list').append(trend);
+	}
+	
+	function setupMouseOverMenu() {
+		if(sources == 3) {				
+			
+			$('#trends-list').hover( function() {				
+				$('#trend-sources').addClass("display-class");
+			}, function() {
+				$('#trend-sources').removeClass("display-class");
+			});
+			
+			$("#trends-list a").mouseover( function() {
+				var query = this.innerHTML.indexOf('#') == 0 ? this.innerHTML.substring(1) : this.innerHTML;
+				$.jGFindFeed(query, parseFeedSources, 10);
+			});
+		}
+	}
+
+	function parseFeedSources(feed) {
+
+		var list = '<div class="trend-sources-header">' + feed.query + '</div><ul>';
+		for(var i=0; i < feed.entries.length; i++) {
+			var entry = feed.entries[i];
+			var title = entry.title.replace(/<.*?>/g, '');
+			list += '<li><a href="javascript:addChannel(\''+ title + '\',\'' + entry.url + '\');" style="overflow: hidden">'+ title +'</a></li>';
+		}
+		list += '</ul>';
+		$('#trend-sources').html(list);
+	}
+</script>
+<div class="trends">
+	<div class="trends-header">
+		Trends
+	</div>
+	<div id="googleTrends" style="display: none;">
+	</div>
+	<div id="trend-sources" class="feed-links" style="margin-left: -300px; padding-left: 18px; padding-top: 15px; width: 231px;">
+		<div class="trend-sources-header">
+			Loading ...
+		</div>		
+	</div>
+	<ul id="trends-list">
+	</ul>
+</div>

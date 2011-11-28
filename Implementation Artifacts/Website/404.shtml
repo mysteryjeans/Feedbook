@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>404 Error</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="http://box5.host1free.com/media/reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="http://box5.host1free.com/media/fonts.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="http://box5.host1free.com/media/style.css" media="screen" />
+	</head>
+	<body>
+		<div class="all" align="center">
+			<div class="wrapper">
+				<table class="header">
+					<tr>
+						<td align="center" valign="top" class="bottom-dotted"><div class="logo link"><a href="http://www.host1free.com/"></a></div></td>
+					</tr>
+					<tr>
+						<td align="center" valign="top" class="bottom-dotted"><span class="big-error error-404">400 Bad Request</span></td>
+					</tr>
+					<tr>
+						<td>
+							<div class="menu">
+								<div class="menu-left"></div>
+								<div class="menu-center">
+									<a title="Community Forum" href="http://www.host1free.com/forum/">Community Forum</a><span></span>
+									<a title="Frequently Answered Questions" href="http://www.host1free.com/faq/">F.A.Q.</a><span></span>
+									<a title="Free Website Builder" href="http://builder.host1free.com/">Website Builder</a><span></span>
+									<a title="Web Hosting" href="http://www.host1plus.com/">Web Hosting</a><span></span>
+									<a title="Donate for Better Free Web Hosting" href="http://www.host1free.com/donate/">Donate</a>
+								</div>
+								<div class="menu-right"></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<iframe src="http://searchportal.information.com/?o_id=127686&domainname=referer_detect" class="iframe" frameborder="0" scrolling="auto"></iframe>
+				<div class="push"></div>
+			</div>
+			<div class="footer">
+				<div class="footer-inside"></div>
+			</div>
+		</div>
+	</body>
+</html>
+

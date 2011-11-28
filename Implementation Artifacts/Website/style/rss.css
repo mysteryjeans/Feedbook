@@ -1,0 +1,45 @@
+.rss-news {
+	width:inherit;
+}
+
+.news-div {
+	margin-bottom: 20px;
+}
+
+.rss-news li {
+    border-bottom: 1px solid #D2D0D0;
+    list-style-type: none;
+    margin-bottom: 15px;
+    padding-bottom: 24px;
+}
+
+.rss-title {
+}
+
+.rss-author {
+	font-size: small;
+	color: Gray;
+}
+
+.rss-publishedDate {
+	font-size: small;
+	color: Gray;
+}
+
+.rss-content {
+	font-size: small;
+	margin-top: 3px;
+}
+
+.rss-read-more {
+    float: right;
+    font-size: small;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.rss-content img {
+    max-height: 500px;
+    max-width: 700px;
+	margin: 10px 10px 10px 0px;
+}

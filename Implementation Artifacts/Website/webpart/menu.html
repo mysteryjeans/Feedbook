@@ -1,0 +1,48 @@
+<script type="text/javascript">
+	$(document).ready( function() {
+		var currentLink = window.location.toString();
+		if(currentLink.indexOf('?') != -1)
+			currentLink = currentLink.substring(0, currentLink.indexOf('?'));
+		$('.menu-links a').each( function() {
+			if(this.href.toLowerCase() == currentLink.toLowerCase())
+				$(this).parent('li').addClass('menu-link-selected');
+		});
+	});
+</script>
+
+<div id="menu">
+	<div id="menu-in">
+		<table width="900px">
+			<tr>
+				<td valign="middle" width="64px">
+				<div class="menu-logo"/>
+				</td>
+				<td valign="middle" align="left" style="width: 235px;">
+				<h1>
+				Feedbook
+				<span style="font-size: small; margin-left: -3px;">Online RSS Reader</span>
+				</h1>
+				</td>
+				<td>
+				<ol class="menu-links">
+					<li>
+						<a href="." title="Online RSS Reader">Reader</a>
+					</li>
+					<li>
+						<a href="./app.html" title="Social client for your desktop">App</a>
+					</li>
+					<li>
+						<a href="./news.html" title="Top news regarding Feedbook">News</a>
+					</li>
+					<li>
+						<a href="./screenshots.html" title="Screenshots of desktop application">Screenshots</a>
+					</li>
+					<li>
+						<a href="./about.html" title="What is Feedbook?">About Us</a>
+					</li>
+				</ol>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
