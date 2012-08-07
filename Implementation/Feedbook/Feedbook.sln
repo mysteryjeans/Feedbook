@@ -14,10 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		..\..\Documentation Artifacts\Features of feedbook.txt = ..\..\Documentation Artifacts\Features of feedbook.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedbook.Web", "Feedbook.Web\Feedbook.Web.csproj", "{70628520-6893-4D07-836F-A59A18AA61A8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMapper", "..\..\..\CrystalMapper\Implementation\CrystalMapper\CrystalMapper\CrystalMapper.csproj", "{362267BA-8052-493E-A3C0-F89B0F3BF331}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{7BC050BB-ABB2-4A1B-9092-D56D778E6CF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrambleUtil", "ScrambleUtil\ScrambleUtil.csproj", "{47A09735-8E88-4BF8-B704-094195F643AB}"
@@ -74,25 +70,6 @@ Global
 		{2989F1CD-6070-468A-8389-A6489CA6666F}.Release|Mixed Platforms.ActiveCfg = Release
 		{2989F1CD-6070-468A-8389-A6489CA6666F}.Release|Mixed Platforms.Build.0 = Release
 		{2989F1CD-6070-468A-8389-A6489CA6666F}.Release|x86.ActiveCfg = Release
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{70628520-6893-4D07-836F-A59A18AA61A8}.Release|x86.ActiveCfg = Release|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Debug|Any CPU.ActiveCfg = Debug NET 4.0|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Debug|Any CPU.Build.0 = Debug NET 4.0|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Release|Any CPU.ActiveCfg = Release NET 4.0|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Release|Any CPU.Build.0 = Release NET 4.0|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{362267BA-8052-493E-A3C0-F89B0F3BF331}.Release|x86.ActiveCfg = Release|Any CPU
 		{47A09735-8E88-4BF8-B704-094195F643AB}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{47A09735-8E88-4BF8-B704-094195F643AB}.Debug|Any CPU.Build.0 = Debug|x86
 		{47A09735-8E88-4BF8-B704-094195F643AB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
