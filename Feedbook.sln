@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		Documents\Feedbook!.ppt = Documents\Feedbook!.ppt
 		Documents\feedbook.xmind = Documents\feedbook.xmind
 		Documents\Icon.ico = Documents\Icon.ico
+		LICENSE = LICENSE
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{6172E8B8-2590-49AC-ABFE-1C26C362F241}"
