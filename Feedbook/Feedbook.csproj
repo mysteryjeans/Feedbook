@@ -402,16 +402,6 @@
     <Resource Include="Images\link.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\CoreSystem\Implementation\CoreSystem\CoreSystem\CoreSystem.csproj">
-      <Project>{FBBFE4AC-73C2-47CB-8925-858501D1AE8F}</Project>
-      <Name>CoreSystem</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Third Party\HtmlToFlowDocConverter\HtmlToFlowDocConverter.csproj">
-      <Project>{242A77D7-BE86-4FC0-B6C8-E03D6399CCDE}</Project>
-      <Name>HtmlToFlowDocConverter</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Black\books.png" />
     <Resource Include="Images\Black\Buzz.png" />
     <Resource Include="Images\Black\RSS.png" />
@@ -446,6 +436,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CoreSystem\CoreSystem\CoreSystem.csproj">
+      <Project>{FBBFE4AC-73C2-47CB-8925-858501D1AE8F}</Project>
+      <Name>CoreSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlToFlowDocConverter\HtmlToFlowDocConverter.csproj">
+      <Project>{242A77D7-BE86-4FC0-B6C8-E03D6399CCDE}</Project>
+      <Name>HtmlToFlowDocConverter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
