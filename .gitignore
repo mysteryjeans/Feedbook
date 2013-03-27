@@ -1,0 +1,8 @@
+*.suo
+*.userprefs
+Feedbook/bin
+Feedbook/obj
+HtmlToFlowDocConverter/bin
+HtmlToFlowDocConverter/obj
+ScrambleUtil/bin
+ScrambleUtil/obj
