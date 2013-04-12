@@ -264,23 +264,14 @@ UTC Time: {0:ddd MM/dd/yyyy hh:mm tt}", utcNow));
         }
 
         private void RSSReader_Click(object sender, RoutedEventArgs e)
-        {
-            this.GoogleBuzz.Collapsed();
+        {            
             this.Twitter.Collapsed();
             this.RSSReader.Show();
-        }
-
-        private void GoogleBuzz_Click(object sender, RoutedEventArgs e)
-        {
-            this.Twitter.Collapsed();
-            this.RSSReader.Collapsed();
-            this.GoogleBuzz.Show();
         }
 
         private void Twitter_Click(object sender, RoutedEventArgs e)
         {
             this.RSSReader.Collapsed();
-            this.GoogleBuzz.Collapsed();
             this.Twitter.Show();
         }
 

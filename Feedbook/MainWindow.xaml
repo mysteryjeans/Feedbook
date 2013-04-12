@@ -56,9 +56,6 @@
             <Button Padding="1" Template="{DynamicResource ButtonControlTemplate}" Margin="-5,0" ToolTip="RSS Reader" Click="RSSReader_Click">
                 <Image Source="Images/GlossyBlack/RSS.png"/>
             </Button>
-            <Button Background="{x:Null}" Padding="1" Margin="0,11,0,0" Template="{DynamicResource ButtonControlTemplate}" ToolTip="Google Buzz" Click="GoogleBuzz_Click">
-                <Image Source="Images/GlossyBlack/Buzz.png"/>
-            </Button>
             <Button Background="{x:Null}" Padding="1" Margin="-7,12,-7,0" Template="{DynamicResource ButtonControlTemplate}" ToolTip="Twitter" Click="Twitter_Click">
                 <Image Source="Images/GlossyBlack/Twitter.png"/>
             </Button>
@@ -80,7 +77,6 @@
         <Grid Grid.Column="1" d:IsHidden="True">
             <views:RSSReader x:Name="RSSReader"/>
             <views:Twitter x:Name="Twitter" Visibility="Hidden"/>
-            <views:GoogleBuzz x:Name="GoogleBuzz" Visibility="Hidden"/>
         </Grid>
         <!--<ContentPresenter x:Name="MainContentPresenter" Grid.Column="1">
             <ContentPresenter.Content>

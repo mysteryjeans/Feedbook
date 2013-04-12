@@ -65,20 +65,6 @@ you need to refresh your account from twitter");
                 element.LogAndShowError(message, exception);
         }
 
-        public static void GBuzzException(this UIElement element, string message, Exception exception)
-        {
-            if (exception.HttpStatusCode() == HttpStatusCode.Unauthorized)
-            {
-                FBMessageBox.Show(
-@"Session token store by Feedbook of your Google Buzz account is seems to be expired,
-you need to refresh your account from Google Buzz");
-
-                (new GBuzzAccount()).ShowDialog();
-            }
-            else
-                element.LogAndShowError(message, exception);
-        }
-
         public static bool IsVisible(this UIElement element)
         {
             return element.Visibility == Visibility.Visible;

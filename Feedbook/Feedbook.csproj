@@ -216,15 +216,6 @@
     <Compile Include="Views\FeedbookSettings.xaml.cs">
       <DependentUpon>FeedbookSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GBuzzControl.xaml.cs">
-      <DependentUpon>GBuzzControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GoogleBuzz.xaml.cs">
-      <DependentUpon>GoogleBuzz.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GBuzzAccount.xaml.cs">
-      <DependentUpon>GBuzzAccount.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\MediaEnclosureView.xaml.cs">
       <DependentUpon>MediaEnclosureView.xaml</DependentUpon>
     </Compile>
@@ -286,18 +277,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FeedbookSettings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\GBuzzControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\GoogleBuzz.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\GBuzzAccount.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
