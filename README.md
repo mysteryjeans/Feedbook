@@ -10,6 +10,6 @@ Feedbook is also Twitter client, it uses OAuth for authenticating with Twitter a
 Enclosures like podcasts cab be download of each individual news feed or set to automatic download for any subscribed sources. Watching podcasts with in Feedbook allows user to quick skim through each one.
 
 ## Need to work on:
-1) Twitter authentication
-2) Remove legacy Google services code
+* Twitter OAUTH authentication
+* Remove legacy Google services code
 
